@@ -4,7 +4,7 @@ WORKDIR /work
 
 RUN git clone https://github.com/svc-develop-team/so-vits-svc.git && cd so-vits-svc
 
-RUN pip install --no-cache-dir --upgrade -r /work/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /work/so-vits-svc/requirements.txt
 
 ENV SERVER_NAME="0.0.0.0"
 ENV SERVER_PORT=7860
