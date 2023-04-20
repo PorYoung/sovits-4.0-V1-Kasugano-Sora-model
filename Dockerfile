@@ -4,6 +4,10 @@ WORKDIR /work
 
 RUN git clone https://github.com/svc-develop-team/so-vits-svc.git && cd so-vits-svc
 
+RUN ["apt", "update"]
+RUN ["apt", "install", "-y", "build-essential"]
+RUN ["pip", "install", "-U", "pip", "setuptools", "wheel"]
+
 RUN pip install --no-cache-dir --upgrade -r /work/so-vits-svc/requirements.txt
 
 ENV SERVER_NAME="0.0.0.0"
