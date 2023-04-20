@@ -6,13 +6,13 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 
 WORKDIR /work
 COPY . .
-RUN cd /work/so-vits-svc/pretrain
-RUN wget -c https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip
-RUN unzip -q nsf_hifigan_20221211.zip
-RUN cd /work/so-vits-svc
+RUN cd /work/so-vits-svc/pretrain && \
+  wget -c https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip && \
+  unzip -q nsf_hifigan_20221211.zip
 RUN pip install --no-cache-dir --upgrade -r /work/so-vits-svc/requirements.txt
 
 ENV SERVER_NAME="0.0.0.0"
 ENV SERVER_PORT=7860
 
+WORKDIR /work/so-vits-svc
 RUN python webUI.py
