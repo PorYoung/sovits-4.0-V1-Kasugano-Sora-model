@@ -6,4 +6,7 @@ RUN git clone https://github.com/svc-develop-team/so-vits-svc.git && cd so-vits-
 
 RUN pip install --no-cache-dir --upgrade -r /work/requirements.txt
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+ENV SERVER_NAME="0.0.0.0"
+ENV SERVER_PORT=7860
+
+CMD ["python", "webUI.py"]
