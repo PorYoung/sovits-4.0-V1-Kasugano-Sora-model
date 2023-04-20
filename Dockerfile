@@ -6,6 +6,7 @@ RUN git clone https://github.com/svc-develop-team/so-vits-svc.git && cd so-vits-
 
 RUN ["apt", "update"]
 RUN ["apt", "install", "-y", "build-essential", "libpython3.9-dev"]
+RUN ["apt", "install", "-y", "sox", "ffmpeg", "libcairo2", "libcairo2-dev", "libgirepository1.0-dev"]
 RUN ["pip", "install", "-U", "pip", "setuptools", "wheel"]
 
 RUN pip install --no-cache-dir --upgrade -r /work/so-vits-svc/requirements.txt
